@@ -7,3 +7,13 @@ The present approach to set covering problem was created partially thanks to the
 
 The proposed algorithm first tries to build the valid solution by taking all unique sets covering only one element and iteratively adding a randomly picked set of the smallest number of elements, until the valid solution is composed. At this point, we don't explicitly care about the cost. The idea is that by choosing this initialisation, we start with a solution which cost by a construction is kept low. In our approach we are more likely to start local search in a state close to the global optimum. Empitical observations showed, that our initialisation has a cost up to 60 times less than a random initialisation, while building takes relatively short time in all the proposed settings.
 As a second step, the random mutation hill climbing is performed. At each step multiple mutations are executed, with the probability of mutation controlled by a self-adapting *temperature* parameter. Adjustment of *temperature* is done according to the 1/5 success rule, evaluated at the end of each era of hill climber.
+
+## Results
+| Instance | Universe Size | # of sets | Density | # of calls | Cost |
+|----------|---------------|-----------|---------|------------|------|
+| 1 | 100 | 10 | 0.2 | 30004 | 238 |
+| 2 | 1000 | 100 | 0.2 | 30004 | 6080 |
+| 3 | 10000 | 1000 | 0.2 | 30004 | 118044 |
+| 4 | 100000 | 10000 | 0.1 | 30004 | 1928891 |
+| 5 | 100000 | 10000 | 0.2 | 30004 | 2109685 |
+| 6 | 100000 | 10000 | 0.3 | 30004 | 2233133 |
